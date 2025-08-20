@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Click Timer</title>
+  <style>
+    body {
+      width: 280px;
+      min-height: 200px;
+      margin: 0;
+      padding: 16px;
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      font-size: 14px;
+      line-height: 1.5;
+      color: #333;
+      background: #fff;
+    }
+
+    .header {
+      display: flex;
+      align-items: center;
+      margin-bottom: 16px;
+      padding-bottom: 12px;
+      border-bottom: 1px solid #e0e0e0;
+    }
+
+    .icon {
+      width: 24px;
+      height: 24px;
+      margin-right: 8px;
+      background: #007BFF;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      font-weight: bold;
+      font-size: 12px;
+    }
+
+    .title {
+      font-size: 16px;
+      font-weight: 600;
+      margin: 0;
+    }
+
+    .status {
+      margin-bottom: 16px;
+    }
+
+    .status-indicator {
+      display: inline-block;
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      margin-right: 6px;
+    }
+
+    .status-indicator.active {
+      background: #28a745;
+    }
+
+    .status-indicator.inactive {
+      background: #dc3545;
+    }
+
+    .stats {
+      background: #f8f9fa;
+      border-radius: 6px;
+      padding: 12px;
+      margin-bottom: 16px;
+    }
+
+    .stat-item {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 8px;
+    }
+
+    .stat-item:last-child {
+      margin-bottom: 0;
+    }
+
+    .stat-label {
+      color: #666;
+      font-size: 13px;
+    }
+
+    .stat-value {
+      font-weight: 600;
+      font-family: 'Courier New', monospace;
+    }
+
+    .controls {
+      display: flex;
+      gap: 8px;
+    }
+
+    .btn {
+      flex: 1;
+      padding: 8px 12px;
+      border: 1px solid #ddd;
+      border-radius: 4px;
+      background: white;
+      color: #333;
+      font-size: 13px;
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+
+    .btn:hover {
+      background: #f5f5f5;
+    }
+
+    .btn.primary {
+      background: #007BFF;
+      color: white;
+      border-color: #007BFF;
+    }
+
+    .btn.primary:hover {
+      background: #0056b3;
+      border-color: #0056b3;
+    }
+
+    .btn.secondary {
+      background: #6c757d;
+      color: white;
+      border-color: #6c757d;
+    }
+
+    .btn.secondary:hover {
+      background: #545b62;
+      border-color: #545b62;
+    }
+
+    .description {
+      font-size: 12px;
+      color: #666;
+      text-align: center;
+      margin-top: 12px;
+      line-height: 1.4;
+    }
+
+    .last-time {
+      font-weight: 600;
+      color: #007BFF;
+    }
+  </style>
+</head>
+<body>
+  <div class="header">
+    <div class="icon">⏱</div>
+    <h1 class="title">Click Timer</h1>
+  </div>
+
+  <div class="status">
+    <span class="status-indicator active" id="statusIndicator"></span>
+    <span id="statusText">Active - Monitoring clicks</span>
+  </div>
+
+  <div class="stats">
+    <div class="stat-item">
+      <span class="stat-label">Total Clicks:</span>
+      <span class="stat-value" id="clickCount">0</span>
+    </div>
+    <div class="stat-item">
+      <span class="stat-label">Last Interval:</span>
+      <span class="stat-value" id="lastInterval">--</span>
+    </div>
+    <div class="stat-item">
+      <span class="stat-label">Session Time:</span>
+      <span class="stat-value" id="sessionTime">00:00</span>
+    </div>
+  </div>
+
+  <div class="controls">
+    <button class="btn" id="resetBtn">Reset</button>
+    <button class="btn primary" id="toggleBtn">Disable</button>
+  </div>
+
+  <div class="description">
+    Click anywhere on web pages to measure timing between clicks.
+    Check browser console for detailed logs.
+  </div>
+
+  <script src="popup.js"></script>
+</body>
+</html>
