@@ -45,6 +45,8 @@ Note for local files: If you need timing on file:// pages, enable “Allow acces
 - No network requests, analytics, or trackers
 - No data leaves your browser; all data is stored locally via `chrome.storage.local`
 
+See the full privacy policy in `PRIVACY.md`.
+
 ## Development
 
 Project structure
